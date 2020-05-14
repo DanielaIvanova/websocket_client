@@ -1,5 +1,7 @@
 # Websocket Client
 
+## Usage
+
 ```
 git clone https://github.com/DanielaIvanova/websocket_client
 cd websocket_client && mix deps.get && iex -S mix
@@ -11,12 +13,12 @@ Client.start_link()
 ```
 ### Subscribe
 
-- `KeyBlocks`, `MicroBlocks`, `Transactions`
+- to all subscriptions - `KeyBlocks`, `MicroBlocks`, `Transactions`
 ```elixir
 Client.subscribe()
 ```
 
-or you can subscribe:
+or you can subscribe to specific one:
 ```elixir
 Client.subscribe(:keyblocks)
 ```
@@ -26,8 +28,18 @@ Client.subscribe(:microblocks)
 ```elixir
 Client.subscribe(:txs)
 ```
+- subscribe to an aeternity object
+```elixir
+Client.subscribe("ak_KHfXhF2J6VBt3sUgFygdbpEkWi6AKBkr9jNKUCHbpwwagzHUs")
+```
+
 
 ### Unsubscribe 
+- to all subscriptions - `KeyBlocks`, `MicroBlocks`, `Transactions`
+```elixir
+Client.unsubscribe()
+```
+or you can unsubscribe to specific one:
 - `KeyBlocks`
 ```elixir
 Client.unsubscribe(:keyblocks)
@@ -43,5 +55,7 @@ Client.unsubscribe(:microblocks)
 Client.unsubscribe(:txs)
 ```
 
-
-
+- unsubscribe to the object
+```elixir
+Client.unsubscribe("ak_KHfXhF2J6VBt3sUgFygdbpEkWi6AKBkr9jNKUCHbpwwagzHUs")
+```
